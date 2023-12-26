@@ -1,0 +1,11 @@
+[package]
+executable = "eza"
+homepage = "https://github.com/eza-community/eza"
+description = "A modern, maintained replacement for ls"
+
+[command-set.default]
+install = "cargo install eza"
+
+is-installed.program = "command"
+is-installed.args = ["-v", "eza"]
+is-installed.redirect.stderr-to = "/dev/null"

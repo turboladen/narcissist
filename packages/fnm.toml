@@ -1,13 +1,24 @@
 [package]
-description = "🚀 Fast and simple Node.js version manager, built in Rust"
-version = "0.1.0"
-dependencies = []
+executable = "fnm"
 homepage = "https://github.com/Schniz/fnm"
+description = "🚀 Fast and simple Node.js version manager, built in Rust"
 notes = """
 The fnm installer says it'll update your shell rc files. FWIW, I don't think that's
 the case if you install using `brew`.
 """
 
-[command-set]
-install.shell = "curl -fsSL https://fnm.vercel.app/install | bash"
-is-installed.shell = "command -v fnm"
+[command-set.default]
+install.program = "curl"
+install.args = ["-fsSL", "https://fnm.vercel.app/install"]
+install.pipe = "bash"
+
+is-installed.program = "command"
+is-installed.args = ["-v", "fnm"]
+is-installed.redirect.stderr-to = "/dev/null"
+
+[command-set.brew]
+install = "brew install fnm"
+
+is-installed.program = "command"
+is-installed.args = ["-v", "fnm"]
+is-installed.redirect.stderr-to = "/dev/null"

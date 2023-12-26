@@ -1,0 +1,23 @@
+[package]
+executable = "zsh"
+homepage = "https://zsh.sourceforge.io/"
+description = """
+Zsh is a shell designed for interactive use, although it is also a powerful scripting language. Many of the useful features of bash, ksh, and tcsh were incorporated into zsh; many original features were added.
+"""
+notes = """
+Don't need to install on macos since it comes with the distro.
+"""
+
+[command-set.dnf]
+install = "sudo dnf --yes install zsh"
+
+is-installed.program = "command"
+is-installed.args = ["-v", "zsh"]
+is-installed.redirect.stderr-to = "/dev/null"
+
+[command-set.pacman]
+install = "sudo pacman -S zsh"
+
+is-installed.program = "command"
+is-installed.args = ["-v", "zsh"]
+is-installed.redirect.stderr-to = "/dev/null"

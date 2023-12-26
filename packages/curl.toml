@@ -1,0 +1,17 @@
+[package]
+executable = "curl"
+homepage = "https://curl.se/"
+description = """
+command line tool and library for transferring data with URLs (since 1998)
+"""
+
+notes = """
+Probably don't need to install this on Macos since it comes with the distro.
+"""
+
+[command-set.default]
+install = "brew install curl"
+
+is-installed.program = "command"
+is-installed.args = ["-v", "curl"]
+is-installed.redirect.stderr-to = "/dev/null"

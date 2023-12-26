@@ -1,0 +1,11 @@
+[package]
+executable = "just"
+homepage = "https://github.com/jesseduffield/lazygit/"
+description = "simple terminal UI for git commands"
+
+[command-set.default]
+install = "brew install lazygit"
+
+is-installed.program = "command"
+is-installed.args = ["-v", "lazygit"]
+is-installed.redirect.stderr-to = "/dev/null"

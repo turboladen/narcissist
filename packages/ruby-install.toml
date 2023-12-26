@@ -1,0 +1,11 @@
+[package]
+executable = "ruby-install"
+homepage = "https://github.com/postmodern/ruby-install"
+description = "Installs Ruby, JRuby, Rubinius, TruffleRuby or MRuby"
+
+[command-set.default]
+install = "brew install ruby-install"
+
+is-installed.program = "command"
+is-installed.args = ["-v", "ruby-install"]
+is-installed.redirect.stderr-to = "/dev/null"

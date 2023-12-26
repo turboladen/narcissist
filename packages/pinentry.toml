@@ -1,0 +1,14 @@
+[package]
+executable = "pinentry"
+homepage = "https://www.gnupg.org/related_software/pinentry/"
+description = """
+pinentry is a small collection of dialog programs that allow GnuPG to read
+passphrases and PIN numbers in a secure manner.
+"""
+
+[command-set.default]
+install = "brew install pinentry"
+
+is-installed.program = "command"
+is-installed.args = ["-v", "pinentry"]
+is-installed.redirect.stderr-to = "/dev/null"

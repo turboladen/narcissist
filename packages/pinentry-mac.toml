@@ -1,0 +1,14 @@
+[package]
+executable = "pinentry-mac"
+homepage = "https://github.com/GPGTools/pinentry"
+description = """
+This is a collection of PIN or passphrase entry dialogs which utilize the
+Assuan protocol as specified in the Libassuan manual.
+"""
+
+[command-set.default]
+install = "brew install pinentry-mac"
+
+is-installed.program = "command"
+is-installed.args = ["-v", "pinentry-mac"]
+is-installed.redirect.stderr-to = "/dev/null"

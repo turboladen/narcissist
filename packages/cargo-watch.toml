@@ -1,0 +1,10 @@
+[package]
+homepage = "https://github.com/watchexec/cargo-watch"
+description = "Watches over your Cargo project's source."
+
+[command-set.default]
+install = "cargo binstall --no-confirm cargo-watch"
+
+is-installed.program = "command"
+is-installed.args = ["-v", "cargo-watch"]
+is-installed.redirect.stderr-to = "/dev/null"

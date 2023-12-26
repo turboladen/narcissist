@@ -1,0 +1,11 @@
+[package]
+executable = "delta"
+homepage = "https://github.com/dandavison/delta"
+description = "A syntax-highlighting pager for git, diff, and grep output"
+
+[command-set.default]
+install = "brew install git-delta"
+
+is-installed.program = "command"
+is-installed.args = ["-v", "delta"]
+is-installed.redirect.stderr-to = "/dev/null"

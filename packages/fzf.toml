@@ -1,0 +1,11 @@
+[package]
+executable = "fzf"
+homepage = "https://github.com/junegunn/fzf"
+description = "🌸 A command-line fuzzy finder"
+
+[command-set.default]
+install = "brew install fzf"
+
+is-installed.program = "command"
+is-installed.args = ["-v", "fzf"]
+is-installed.redirect.stderr-to = "/dev/null"

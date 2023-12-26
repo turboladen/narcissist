@@ -1,9 +1,12 @@
-mod install;
-mod install_all;
+pub(crate) mod install;
 
-use clap::{Parser, Subcommand};
+use std::borrow::Cow;
 
-use self::{install::Install, install_all::InstallAll};
+use clap::Parser;
+
+use crate::package_installer::PackageInstaller;
+
+use self::install::Install;
 
 #[derive(Parser)]
 #[command(author, version, about, long_about = None)]
@@ -17,26 +20,27 @@ pub struct Cli {
     dry_run: bool,
 
     #[command(subcommand)]
-    command: Commands,
+    subcommand: Subcommand,
 }
 
-#[derive(Subcommand)]
-pub enum Commands {
+#[derive(clap::Subcommand)]
+pub enum Subcommand {
     /// Installs a package from a package file.
+    ///
     Install(Install),
-    InstallAll(InstallAll),
 }
 
+/// Main entry point into the app. This parses the CLI command & args and executes accordingly.
+///
 pub fn parse() -> anyhow::Result<()> {
     let cli = Cli::parse();
 
-    match &cli.command {
-        Commands::Install(cmd) => {
-            cmd.validate_package_file()?;
-            cmd.install(cli.dry_run)?;
-        }
-        Commands::InstallAll(_install_all) => {
-            todo!()
+    match &cli.subcommand {
+        Subcommand::Install(cmd) => {
+            let using = cmd.using().trim().to_string();
+
+            let installer = PackageInstaller::try_new(using, Cow::Borrowed(cmd.file()))?;
+            installer.install(cli.dry_run)?;
         }
     }
 

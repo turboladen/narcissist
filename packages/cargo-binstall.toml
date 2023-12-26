@@ -1,0 +1,19 @@
+[package]
+homepage = "https://github.com/cargo-bins/cargo-binstall"
+description = "Binary installation for rust projects"
+
+[command-set.default]
+install.program = "curl"
+install.args = [
+  "-L",
+  "--proto",
+  "'=https'",
+  "--tlsv1.2",
+  "-sSf",
+  "https://raw.githubusercontent.com/cargo-bins/cargo-binstall/main/install-from-binstall-release.sh",
+]
+install.pipe = "bash"
+
+is-installed.program = "cargo"
+is-installed.args = ["binstall", "--help"]
+is-installed.redirect.stderr-to = "/dev/null"

@@ -1,0 +1,11 @@
+[package]
+executable = "shellcheck"
+homepage = "https://www.shellcheck.net/"
+description = "finds bugs in your shell scripts."
+
+[command-set.default]
+install = "brew install shellcheck"
+
+is-installed.program = "command"
+is-installed.args = ["-v", "shellcheck"]
+is-installed.redirect.stderr-to = "/dev/null"

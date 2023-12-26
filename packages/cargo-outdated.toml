@@ -1,0 +1,12 @@
+[package]
+homepage = "https://github.com/kbknapp/cargo-outdated"
+description = """
+A cargo subcommand for displaying when Rust dependencies are out of date
+"""
+
+[command-set.default]
+install = "cargo binstall --no-confirm cargo-outdated"
+
+is-installed.program = "command"
+is-installed.args = ["-v", "cargo-outdated"]
+is-installed.redirect.stderr-to = "/dev/null"

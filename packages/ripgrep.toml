@@ -1,0 +1,14 @@
+[package]
+executable = "rg"
+homepage = "https://github.com/BurntSushi/ripgrep"
+description = """
+ripgrep recursively searches directories for a regex pattern while respecting
+your gitignore
+""""
+
+[command-set.default]
+install = "brew install ripgrep"
+
+is-installed.program = "command"
+is-installed.args = ["-v", "rg"]
+is-installed.redirect.stderr-to = "/dev/null"
