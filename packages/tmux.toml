@@ -1,0 +1,11 @@
+[package]
+executable = "tmux"
+homepage = "https://github.com/tmux/tmux"
+description = "tmux is a terminal multiplexer"
+
+[command-set.default]
+install = "brew install tmux"
+
+is-installed.program = "command"
+is-installed.args = ["-v", "tmux"]
+is-installed.redirect.stderr-to = "/dev/null"

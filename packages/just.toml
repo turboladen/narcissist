@@ -1,0 +1,11 @@
+[package]
+executable = "just"
+homepage = "https://just.systems/"
+description = "Just a command runner"
+
+[command-set.default]
+install = "brew install just"
+
+is-installed.program = "command"
+is-installed.args = ["-v", "just"]
+is-installed.redirect.stderr-to = "/dev/null"

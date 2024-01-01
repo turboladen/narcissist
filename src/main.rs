@@ -6,7 +6,7 @@ use log::debug;
 fn main() -> anyhow::Result<()> {
     set_up_logging();
 
-    stromboli::cli::parse()?;
+    narcissist::cli::parse()?;
     Ok(())
 }
 
@@ -69,7 +69,7 @@ fn set_up_logging() {
         // field which defaults to the module path but can be overwritten with the `target`
         // parameter:
         // `info!(target="special_target", "This log message is about special_target");`
-        .level_for("stromboli", log::LevelFilter::Trace)
+        .level_for("narcissist", log::LevelFilter::Trace)
         // output to stdout
         .chain(std::io::stdout())
         .apply()

@@ -1,0 +1,12 @@
+[package]
+# executable = "git hf"
+homepage = "https://datasift.github.io/gitflow/"
+description = "GitFlow For GitHub"
+
+[command-set.default]
+install = "brew install hubflow"
+
+is-installed.program = "git"
+is-installed.args = ["hf", "version"]
+is-installed.redirect.stdout-to = "/dev/null"
+is-installed.redirect.stderr-to = "/dev/null"

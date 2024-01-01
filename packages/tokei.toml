@@ -1,0 +1,11 @@
+[package]
+executable = "tokei"
+homepage = "https://github.com/XAMPPRocky/tokei"
+description = "Count your code, quickly."
+
+[command-set.default]
+install = "brew install tokei"
+
+is-installed.program = "command"
+is-installed.args = ["-v", "tokei"]
+is-installed.redirect.stderr-to = "/dev/null"

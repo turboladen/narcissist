@@ -1,0 +1,11 @@
+[package]
+executable = "gh"
+homepage = "https://cli.github.com/"
+description = "GitHub CLI brings GitHub to your terminal."
+
+[command-set.default]
+install = "brew install gh"
+
+is-installed.program = "command"
+is-installed.args = ["-v", "gh"]
+is-installed.redirect.stderr-to = "/dev/null"

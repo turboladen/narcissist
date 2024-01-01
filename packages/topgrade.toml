@@ -1,0 +1,11 @@
+[package]
+executable = "topgrade"
+homepage = "https://github.com/topgrade-rs/topgrade"
+description = "Upgrade all the things"
+
+[command-set.default]
+install = "brew install topgrade"
+
+is-installed.program = "command"
+is-installed.args = ["-v", "topgrade"]
+is-installed.redirect.stderr-to = "/dev/null"

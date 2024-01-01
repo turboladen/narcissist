@@ -1,0 +1,11 @@
+[package]
+executable = "bat"
+homepage = "https://github.com/sharkdp/bat"
+description = "A cat(1) clone with wings."
+
+[command-set.default]
+install = "brew install bat"
+
+is-installed.program = "command"
+is-installed.args = ["-v", "bat"]
+is-installed.redirect.stderr-to = "/dev/null"

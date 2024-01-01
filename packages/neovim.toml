@@ -1,0 +1,11 @@
+[package]
+executable = "nvim"
+homepage = "https://neovim.io/"
+description = "hyperextensible Vim-based text editor"
+
+[command-set.default]
+install = "brew install neovim"
+
+is-installed.program = "command"
+is-installed.args = ["-v", "nvim"]
+is-installed.redirect.stderr-to = "/dev/null"

@@ -1,8 +1,12 @@
-use std::process::{Command as StdCommand, Stdio};
+pub(crate) mod install;
+pub(crate) mod is_installed;
 
-use anyhow::bail;
-use log::info;
+use log::{debug, info};
 use serde::Deserialize;
+
+use crate::{command::Command, Execute};
+
+use self::is_installed::IsInstalledOutput;
 
 #[derive(Debug, Clone, Deserialize)]
 #[serde(rename_all(deserialize = "kebab-case"))]
@@ -11,64 +15,47 @@ pub struct CommandSet {
     is_installed: Option<Command>,
 }
 
-#[derive(Debug, Clone, Deserialize)]
-#[serde(rename_all(deserialize = "kebab-case"))]
-pub(crate) enum Command {
-    /// A `Shell` command just runs a command in a subprocess of whatever shell you're currently
-    /// running.
-    ///
-    Shell(String),
-}
-
 impl CommandSet {
-    pub fn run_is_installed(&self) -> anyhow::Result<bool> {
-        if let Some(cmd) = self.is_installed.as_ref() {
-            match cmd {
-                Command::Shell(shell_cmd) => {
-                    info!("Running is_installed command: {}", shell_cmd);
+    /// Entry point to the `is-installed` command.
+    ///
+    pub(crate) fn is_installed(
+        &self,
+        executable: Option<&String>,
+    ) -> anyhow::Result<IsInstalledOutput> {
+        debug!("is-installed check starting.");
 
-                    match StdCommand::new(shell_cmd).status() {
-                        Ok(status) => {
-                            if status.success() {
-                                Ok(true)
-                            } else {
-                                Ok(false)
-                            }
-                        }
-                        Err(_) => Ok(false),
-                    }
-                }
-            }
+        if let Some(cmd) = self.is_installed.as_ref() {
+            Ok(self::is_installed::IsInstalled::command(executable, cmd).unwrap())
         } else {
-            bail!("Must provide `command-set.is-installed`")
+            // bail!("Must provide `command-set.is-installed`")
+            Ok(IsInstalledOutput::Installed)
         }
     }
 
-    pub fn dry_run_is_installed(&self) {
+    /// This gets call for `is-installed` if the `--dry-run` flag was given.
+    ///
+    pub fn dry_run_is_installed(&self, executable: Option<&String>) {
         if let Some(cmd) = self.is_installed.as_ref() {
-            match cmd {
-                Command::Shell(shell_cmd) => {
-                    info!("[dry-run] Running is_installed command: {}", shell_cmd);
-                }
-            }
+            self::is_installed::IsInstalledDryRun::command(executable, cmd).unwrap();
         } else {
             todo!("Fail here to make sure the caller specifies a thing")
         }
     }
 
-    pub fn run_install(&self) -> anyhow::Result<()> {
-        match &self.install {
-            Command::Shell(cmd) => {
-                info!("Running install command in current shell: {}", &cmd);
+    /// Entry point to the `install` command.
+    ///
+    pub fn run_install(&self, executable: Option<&String>) -> anyhow::Result<()> {
+        self::install::Install::command(executable, &self.install)
+    }
 
-                let status = StdCommand::new(&cmd).stdout(Stdio::piped()).status()?;
+    /// This gets call for `install` if the `--dry-run` flag was given.
+    ///
+    pub fn dry_run_install(&self) -> anyhow::Result<()> {
+        info!(
+            "[dry-run] Running install command in current shell: {}",
+            &self.install
+        );
 
-                if status.success() {
-                    Ok(())
-                } else {
-                    bail!("Shell install command failed: `{}`", &cmd)
-                }
-            }
-        }
+        Ok(())
     }
 }
