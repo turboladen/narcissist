@@ -3,8 +3,15 @@ executable = "gh"
 homepage = "https://cli.github.com/"
 description = "GitHub CLI brings GitHub to your terminal."
 
-[command-set.default]
+[command-set.brew]
 install = "brew install gh"
+
+is-installed.program = "command"
+is-installed.args = ["-v", "gh"]
+is-installed.redirect.stderr-to = "/dev/null"
+
+[command-set.pacman]
+install = "sudo pacman -S --noconfirm --needed github-cli"
 
 is-installed.program = "command"
 is-installed.args = ["-v", "gh"]

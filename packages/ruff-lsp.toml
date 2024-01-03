@@ -1,0 +1,22 @@
+[package]
+executable = "ruff-lsp"
+homepage = "https://github.com/astral-sh/ruff"
+description = "An extremely fast Python linter and code formatter, written in Rust."
+notes = """
+Prefer pipx since the package requires Python and we don't want to bring
+another system Python.
+"""
+
+[command-set.pipx]
+install = "pipx install ruff-lsp"
+
+is-installed.program = "command"
+is-installed.args = ["-v", "ruff-lsp"]
+is-installed.redirect.stderr-to = "/dev/null"
+
+[command-set.pacman]
+install = "sudo pacman --sync --noconfirm --needed ruff-lsp"
+
+is-installed.program = "command"
+is-installed.args = ["-v", "ruff-lsp"]
+is-installed.redirect.stderr-to = "/dev/null"

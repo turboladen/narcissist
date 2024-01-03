@@ -1,0 +1,8 @@
+[package]
+executable = "paru"
+homepage = "https://github.com/Morganamilo/paru"
+description = "Feature packed AUR helper"
+notes = """
+Installation instructions for paru involves a few steps, leading to a `makepkg`;
+this isn't yet really supported, so need to revisit.
+""""

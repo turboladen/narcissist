@@ -1,0 +1,18 @@
+[package]
+executable = "efm-langserver"
+homepage = "https://github.com/mattn/efm-langserver"
+description = "General purpose Language Server"
+
+[command-set.brew]
+install = "brew install efm-langserver"
+
+is-installed.program = "command"
+is-installed.args = ["-v", "efm-langserver"]
+is-installed.redirect.stderr-to = "/dev/null"
+
+[command-set.paru]
+install = "paru -S --noconfirm --needed efm-langserver"
+
+is-installed.program = "command"
+is-installed.args = ["-v", "efm-langserver"]
+is-installed.redirect.stderr-to = "/dev/null"

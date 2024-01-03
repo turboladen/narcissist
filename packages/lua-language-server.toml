@@ -1,0 +1,18 @@
+[package]
+executable = "lua-language-server"
+homepage = "https://github.com/LuaLS/lua-language-server"
+description = "A language server that offers Lua language support - programmed in Lua"
+
+[command-set.brew]
+install = "brew install lua-language-server"
+
+is-installed.program = "command"
+is-installed.args = ["-v", "lua-language-server"]
+is-installed.redirect.stderr-to = "/dev/null"
+
+[command-set.pacman]
+install = "sudo pacman --sync --noconfirm --needed lua-language-server"
+
+is-installed.program = "command"
+is-installed.args = ["-v", "lua-language-server"]
+is-installed.redirect.stderr-to = "/dev/null"

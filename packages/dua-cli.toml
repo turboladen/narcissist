@@ -3,8 +3,15 @@ executable = "dua"
 homepage = "https://github.com/Byron/dua-cli"
 description = "View disk space usage and delete unwanted data, fast."
 
-[command-set.default]
+[command-set.brew]
 install = "brew install dua-cli"
+
+is-installed.program = "command"
+is-installed.args = ["-v", "dua"]
+is-installed.redirect.stderr-to = "/dev/null"
+
+[command-set.pacman]
+install = "sudo pacman -S --needed --noconfirm dua-cli"
 
 is-installed.program = "command"
 is-installed.args = ["-v", "dua"]

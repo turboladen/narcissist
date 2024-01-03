@@ -1,0 +1,22 @@
+[package]
+executable = "emmet-ls"
+homepage = "https://github.com/aca/emmet-ls"
+description = "Emmet support based on LSP."
+notes = """
+Prefer the `npm` method, so as to not have the OS package manager install Node
+things.
+"""
+
+[command-set.npm]
+install = "npm install -g emmet-ls"
+
+is-installed.program = "command"
+is-installed.args = ["-v", "emmet-ls"]
+is-installed.redirect.stderr-to = "/dev/null"
+
+[command-set.paru]
+install = "paru --sync --noconfirm --needed nodejs-emmet-ls"
+
+is-installed.program = "command"
+is-installed.args = ["-v", "emmet-ls"]
+is-installed.redirect.stderr-to = "/dev/null"

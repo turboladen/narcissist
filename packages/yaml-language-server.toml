@@ -1,0 +1,21 @@
+[package]
+executable = "yaml-language-server"
+homepage = "https://github.com/redhat-developer/yaml-language-server"
+description = "Language Server for YAML Files"
+notes = """
+Since this depends on node, it'd probably be better to just install via npm?
+"""
+
+[command-set.brew]
+install = "brew install yaml-language-server"
+
+is-installed.program = "command"
+is-installed.args = ["-v", "yaml-language-server"]
+is-installed.redirect.stderr-to = "/dev/null"
+
+[command-set.pacman]
+install = "sudo pacman --sync --noconfirm --needed yaml-language-server"
+
+is-installed.program = "command"
+is-installed.args = ["-v", "yaml-language-server"]
+is-installed.redirect.stderr-to = "/dev/null"

@@ -1,0 +1,20 @@
+[package]
+executable = "docker-langserver"
+homepage = "https://github.com/rcjsuen/dockerfile-language-server"
+
+description = """
+A language server for Dockerfiles powered by Node.js, TypeScript, and VSCode
+technologies.
+"""
+
+notes = """
+Prefer the `npm` method, so as to not have the OS package manager install Node
+things.
+"""
+
+[command-set.npm]
+install = "npm install -g dockerfile-language-server-nodejs"
+
+is-installed.program = "command"
+is-installed.args = ["-v", "docker-langserver"]
+is-installed.redirect.stderr-to = "/dev/null"

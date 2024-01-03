@@ -6,7 +6,7 @@ This is a collection of PIN or passphrase entry dialogs which utilize the
 Assuan protocol as specified in the Libassuan manual.
 """
 
-[command-set.default]
+[command-set.brew]
 install = "brew install pinentry-mac"
 
 is-installed.program = "command"

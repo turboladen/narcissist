@@ -1,0 +1,28 @@
+[package]
+executable = "bash-language-server"
+homepage = "https://github.com/bash-lsp/bash-language-server"
+description = "A language server for Bash"
+notes = """
+Since this depends on node, it'd probably be better to just install via npm?
+"""
+
+[command-set.npm]
+install = "npm install -g bash-language-server"
+
+is-installed.program = "command"
+is-installed.args = ["-v", "bash-language-server"]
+is-installed.redirect.stderr-to = "/dev/null"
+
+[command-set.brew]
+install = "brew install bash-language-server"
+
+is-installed.program = "command"
+is-installed.args = ["-v", "bash-language-server"]
+is-installed.redirect.stderr-to = "/dev/null"
+
+[command-set.pacman]
+install = "sudo pacman --sync --noconfirm --needed bash-language-server"
+
+is-installed.program = "command"
+is-installed.args = ["-v", "bash-language-server"]
+is-installed.redirect.stderr-to = "/dev/null"

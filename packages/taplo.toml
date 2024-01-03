@@ -1,0 +1,11 @@
+[package]
+executable = "taplo"
+homepage = "https://taplo.tamasfe.dev/"
+description = "A versatile, feature-rich TOML toolkit."
+
+[command-set.pacman]
+install = "sudo pacman --sync --noconfirm --needed taplo"
+
+is-installed.program = "command"
+is-installed.args = ["-v", "taplo"]
+is-installed.redirect.stderr-to = "/dev/null"

@@ -3,8 +3,15 @@ executable = "zoxide"
 homepage = "https://github.com/ajeetdsouza/zoxide"
 description = "A smarter cd command. Supports all major shells."
 
-[command-set.default]
+[command-set.brew]
 install = "brew install zoxide"
+
+is-installed.program = "command"
+is-installed.args = ["-v", "zoxide"]
+is-installed.redirect.stderr-to = "/dev/null"
+
+[command-set.pacman]
+install = "sudo pacman --sync --noconfirm --needed zoxide"
 
 is-installed.program = "command"
 is-installed.args = ["-v", "zoxide"]

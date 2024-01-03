@@ -1,0 +1,20 @@
+[package]
+executable = "vale"
+homepage = "https://vale.sh/"
+description = """
+Vale is an open-source, command-line tool that brings your editorial style guide to life.
+"""
+
+[command-set.brew]
+install = "brew install vale"
+
+is-installed.program = "command"
+is-installed.args = ["-v", "vale"]
+is-installed.redirect.stderr-to = "/dev/null"
+
+[command-set.paru]
+install = "paru --sync --noconfirm --needed vale"
+
+is-installed.program = "command"
+is-installed.args = ["-v", "vale"]
+is-installed.redirect.stderr-to = "/dev/null"

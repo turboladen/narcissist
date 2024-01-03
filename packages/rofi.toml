@@ -1,0 +1,11 @@
+[package]
+executable = "rofi"
+homepage = "https://github.com/davatorium/rofi"
+description = "Rofi: A window switcher, application launcher and dmenu replacement"
+
+[command-set.pacman]
+install = "sudo pacman -S --noconfirm --needed rofi"
+
+is-installed.program = "command"
+is-installed.args = ["-v", "rofi"]
+is-installed.redirect.stderr-to = "/dev/null"

@@ -1,4 +1,5 @@
 [package]
+executable = "cargo-watch"
 homepage = "https://github.com/watchexec/cargo-watch"
 description = "Watches over your Cargo project's source."
 

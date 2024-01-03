@@ -3,8 +3,15 @@ executable = "typos"
 homepage = "https://github.com/crate-ci/typos"
 description = "Source code spell checker"
 
-[command-set.default]
+[command-set.cargo]
 install = "cargo install typos-cli"
+
+is-installed.program = "command"
+is-installed.args = ["-v", "typos"]
+is-installed.redirect.stderr-to = "/dev/null"
+
+[command-set.pacman]
+install = "sudo pacman --sync --noconfirm --needed typos"
 
 is-installed.program = "command"
 is-installed.args = ["-v", "typos"]

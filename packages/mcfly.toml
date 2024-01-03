@@ -3,8 +3,15 @@ executable = "mcfly"
 homepage = "https://github.com/cantino/mcfly"
 description = "Fly through your shell history. Great Scott!"
 
-[command-set.default]
+[command-set.brew]
 install = "brew install mcfly"
+
+is-installed.program = "command"
+is-installed.args = ["-v", "mcfly"]
+is-installed.redirect.stderr-to = "/dev/null"
+
+[command-set.pacman]
+install = "sudo pacman --sync --noconfirm --needed mcfly"
 
 is-installed.program = "command"
 is-installed.args = ["-v", "mcfly"]

@@ -9,8 +9,15 @@ notes = """
 Probably don't need to install this on Macos since it comes with the distro.
 """
 
-[command-set.default]
+[command-set.brew]
 install = "brew install curl"
+
+is-installed.program = "command"
+is-installed.args = ["-v", "curl"]
+is-installed.redirect.stderr-to = "/dev/null"
+
+[command-set.pacman]
+install = "sudo pacman --sync --noconfirm --needed curl"
 
 is-installed.program = "command"
 is-installed.args = ["-v", "curl"]

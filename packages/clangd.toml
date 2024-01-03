@@ -1,0 +1,25 @@
+[package]
+executable = "clangd"
+homepage = "https://clangd.llvm.org/"
+description = """
+clangd understands your C++ code and adds smart features to your editor: code
+completion, compile errors, go-to-definition and more.
+
+clangd is a language server that can work with many editors via a plugin.
+"""
+
+# The `llvm` package on brew brings `clangd`.
+[command-set.brew]
+install = "brew install llvm"
+
+is-installed.program = "command"
+is-installed.args = ["-v", "clangd"]
+is-installed.redirect.stderr-to = "/dev/null"
+
+# The `clang` package on pacman brings `clangd`.
+[command-set.pacman]
+install = "sudo pacman --sync --noconfirm --needed clang"
+
+is-installed.program = "command"
+is-installed.args = ["-v", "clangd"]
+is-installed.redirect.stderr-to = "/dev/null"

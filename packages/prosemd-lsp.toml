@@ -1,0 +1,13 @@
+[package]
+executable = "prosemd-lsp"
+homepage = "https://github.com/kitten/prosemd-lsp"
+description = """
+An experimental proofreading and linting language server for markdown files ✍️ 
+"""
+
+[command-set.cargo]
+install = "cargo binstall --no-confirm prosemd-lsp"
+
+is-installed.program = "command"
+is-installed.args = ["-v", "prosemd-lsp"]
+is-installed.redirect.stderr-to = "/dev/null"
