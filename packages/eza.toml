@@ -2,7 +2,7 @@
 executable = "eza"
 homepage = "https://github.com/eza-community/eza"
 description = "A modern, maintained replacement for ls"
-note = """
+notes = """
 Seems like the PM packages don't have any dependencies, so favor those.
 """
 
