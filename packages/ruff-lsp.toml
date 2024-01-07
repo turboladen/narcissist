@@ -3,9 +3,17 @@ executable = "ruff-lsp"
 homepage = "https://github.com/astral-sh/ruff"
 description = "An extremely fast Python linter and code formatter, written in Rust."
 notes = """
-Prefer pipx since the package requires Python and we don't want to bring
-another system Python.
+Prefer rye since the package requires Python and we don't want to bring
+another system Python. (`pipx` effectively depends on the OS PM, hence not
+favoring that.)
 """
+
+[command-set.rye]
+install = "rye install ruff-lsp"
+
+is-installed.program = "command"
+is-installed.args = ["-v", "rye"]
+is-installed.redirect.stderr-to = "/dev/null"
 
 [command-set.pipx]
 install = "pipx install ruff-lsp"

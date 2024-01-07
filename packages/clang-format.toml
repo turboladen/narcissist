@@ -6,6 +6,14 @@ clang-format is located in clang/tools/clang-format and can be used to format
 C/C++/Java/JavaScript/JSON/Objective-C/Protobuf/C# code.
 """
 
+# The `llvm` package on brew brings `clang-format`.
+[command-set.brew]
+install = "brew install llvm"
+
+is-installed.program = "command"
+is-installed.args = ["-v", "clang-format"]
+is-installed.redirect.stderr-to = "/dev/null"
+
 # The `clang` package brings `clang-format`.
 [command-set.pacman]
 install = "sudo pacman --sync --noconfirm --needed clang"

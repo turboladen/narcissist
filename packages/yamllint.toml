@@ -20,10 +20,3 @@ install = "brew install yamllint"
 is-installed.program = "command"
 is-installed.args = ["-v", "yamllint"]
 is-installed.redirect.stderr-to = "/dev/null"
-
-[command-set.pacman]
-install = "sudo pacman --sync --noconfirm --needed yamllint"
-
-is-installed.program = "command"
-is-installed.args = ["-v", "yamllint"]
-is-installed.redirect.stderr-to = "/dev/null"

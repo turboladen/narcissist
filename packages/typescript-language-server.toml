@@ -3,8 +3,15 @@ executable = "typescript-language-server"
 homepage = "https://github.com/typescript-language-server/typescript-language-server"
 description = "TypeScript & JavaScript Language Server"
 notes = """
-Since this depends on node, it'd probably be better to just install via npm?
+Prefer the `npm` version since OS PMs will install Node.
 """
+
+[command-set.npm]
+install = "npm install --global typescript-language-server"
+
+is-installed.program = "command"
+is-installed.args = ["-v", "typescript-language-server"]
+is-installed.redirect.stderr-to = "/dev/null"
 
 [command-set.pacman]
 install = "sudo pacman --sync --noconfirm --needed typescript-language-server"

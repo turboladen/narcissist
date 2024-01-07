@@ -4,7 +4,7 @@ homepage = "https://github.com/crate-ci/typos"
 description = "Source code spell checker"
 
 [command-set.cargo]
-install = "cargo install typos-cli"
+install = "cargo binstall --no-confirm typos-cli"
 
 is-installed.program = "command"
 is-installed.args = ["-v", "typos"]

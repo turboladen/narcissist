@@ -13,7 +13,7 @@ things.
 """
 
 [command-set.npm]
-install = "npm install -g dockerfile-language-server-nodejs"
+install = "npm install --global dockerfile-language-server-nodejs"
 
 is-installed.program = "command"
 is-installed.args = ["-v", "docker-langserver"]

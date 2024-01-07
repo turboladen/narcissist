@@ -1,0 +1,18 @@
+[package]
+executable = "chruby"
+homepage = "https://github.com/JeanMertz/chruby-fish"
+description = "Thin wrapper around chruby to make it work with the Fish shell"
+
+[command-set.brew]
+install = "brew install chruby-fish"
+
+is-installed.program = "type"
+is-installed.args = ["--type", "chruby"]
+is-installed.redirect.stderr-to = "/dev/null"
+
+[command-set.paru]
+install = "paru --sync --noconfirm --needed chruby-fish"
+
+is-installed.program = "type"
+is-installed.args = ["--type", "chruby"]
+is-installed.redirect.stderr-to = "/dev/null"

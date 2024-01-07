@@ -1,0 +1,28 @@
+[package]
+executable = "rye"
+homepage = "https://rye-up.com/"
+description = """
+Rye is an experimental endeavour to build a new type of packaging experience to
+Python inspired by rustup and cargo from Rust.
+"""
+
+notes = """
+It seems like OS PMs don't have unwanted dependencies, so probably good to
+prefer those.
+"""
+
+[command-set.curl]
+install.program = "curl"
+install.args = ["-sSf", "https://rye-up.com/get"]
+install.pipe = "bash"
+
+is-installed.program = "command"
+is-installed.args = ["-v", "rye"]
+is-installed.redirect.stderr-to = "/dev/null"
+
+[command-set.pacman]
+install = "sudo pacman --sync --noconfirm --needed rye"
+
+is-installed.program = "command"
+is-installed.args = ["-v", "rye"]
+is-installed.redirect.stderr-to = "/dev/null"

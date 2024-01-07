@@ -3,11 +3,11 @@ executable = "bash-language-server"
 homepage = "https://github.com/bash-lsp/bash-language-server"
 description = "A language server for Bash"
 notes = """
-Since this depends on node, it'd probably be better to just install via npm?
+Prefer the `npm` version so as to avoid installing Node via the OS package manager.
 """
 
 [command-set.npm]
-install = "npm install -g bash-language-server"
+install = "npm install --global bash-language-server"
 
 is-installed.program = "command"
 is-installed.args = ["-v", "bash-language-server"]

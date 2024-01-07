@@ -8,7 +8,7 @@ things.
 """
 
 [command-set.npm]
-install = "npm install -g emmet-ls"
+install = "npm install --global emmet-ls"
 
 is-installed.program = "command"
 is-installed.args = ["-v", "emmet-ls"]
