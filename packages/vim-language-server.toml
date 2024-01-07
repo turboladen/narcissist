@@ -1,0 +1,21 @@
+[package]
+executable = "vim-language-server"
+homepage = "https://github.com/iamcco/vim-language-server"
+description = "VImScript language server, LSP for vim script"
+notes = """
+Prefer the `npm` version since OS PMs will install Node.
+"""
+
+[command-set.npm]
+install = "npm install --global vim-language-server"
+
+is-installed.program = "command"
+is-installed.args = ["-v", "vim-language-server"]
+is-installed.redirect.stderr-to = "/dev/null"
+
+[command-set.pacman]
+install = "sudo pacman --sync --noconfirm --needed vim-language-server"
+
+is-installed.program = "command"
+is-installed.args = ["-v", "vim-language-server"]
+is-installed.redirect.stderr-to = "/dev/null"

@@ -6,8 +6,15 @@ Git is a free and open source distributed version control system designed to
 handle everything from small to very large projects with speed and efficiency.
 """
 
-[command-set.default]
+[command-set.brew]
 install = "brew install git"
+
+is-installed.program = "command"
+is-installed.args = ["-v", "git"]
+is-installed.redirect.stderr-to = "/dev/null"
+
+[command-set.pacman]
+install = "sudo pacman -S --needed --noconfirm git"
 
 is-installed.program = "command"
 is-installed.args = ["-v", "git"]

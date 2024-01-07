@@ -1,0 +1,20 @@
+[package]
+executable = "marksman"
+homepage = "https://github.com/artempyanykh/marksman"
+description = """
+Write Markdown with code assist and intelligence in the comfort of your favourite editor.
+"""
+
+[command-set.brew]
+install = "brew install marksman"
+
+is-installed.program = "command"
+is-installed.args = ["-v", "marksman"]
+is-installed.redirect.stderr-to = "/dev/null"
+
+[command-set.pacman]
+install = "sudo pacman --sync --noconfirm --needed marksman"
+
+is-installed.program = "command"
+is-installed.args = ["-v", "marksman"]
+is-installed.redirect.stderr-to = "/dev/null"

@@ -1,0 +1,29 @@
+[package]
+executable = "yamllint"
+homepage = "https://github.com/adrienverge/yamllint"
+description = "A linter for YAML files."
+notes = """
+Use the `pipx` method, so as to not have the OS package manager install Python
+things.
+"""
+
+[command-set.rye]
+install = "rye install yamllint"
+
+is-installed.program = "command"
+is-installed.args = ["-v", "yamllint"]
+is-installed.redirect.stderr-to = "/dev/null"
+
+[command-set.pipx]
+install = "pipx install yamllint"
+
+is-installed.program = "command"
+is-installed.args = ["-v", "yamllint"]
+is-installed.redirect.stderr-to = "/dev/null"
+
+[command-set.brew]
+install = "brew install yamllint"
+
+is-installed.program = "command"
+is-installed.args = ["-v", "yamllint"]
+is-installed.redirect.stderr-to = "/dev/null"

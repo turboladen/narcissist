@@ -5,8 +5,15 @@ description = """
 The minimal, blazing-fast, and infinitely customizable prompt for any shell!
 """
 
-[command-set.default]
+[command-set.brew]
 install = "brew install starship"
+
+is-installed.program = "command"
+is-installed.args = ["-v", "starship"]
+is-installed.redirect.stderr-to = "/dev/null"
+
+[command-set.pacman]
+install = "sudo pacman -S --noconfirm --needed starship"
 
 is-installed.program = "command"
 is-installed.args = ["-v", "starship"]

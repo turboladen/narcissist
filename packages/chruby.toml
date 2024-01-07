@@ -3,8 +3,15 @@ executable = "chruby"
 homepage = "https://github.com/postmodern/chruby"
 description = "Changes the current Ruby"
 
-[command-set.default]
+[command-set.brew]
 install = "brew install chruby"
+
+is-installed.program = "command"
+is-installed.args = ["-v", "chruby"]
+is-installed.redirect.stderr-to = "/dev/null"
+
+[command-set.paru]
+install = "paru --sync --noconfirm --needed chruby"
 
 is-installed.program = "command"
 is-installed.args = ["-v", "chruby"]

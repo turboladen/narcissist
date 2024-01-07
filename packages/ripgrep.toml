@@ -6,8 +6,15 @@ ripgrep recursively searches directories for a regex pattern while respecting
 your gitignore
 """"
 
-[command-set.default]
+[command-set.brew]
 install = "brew install ripgrep"
+
+is-installed.program = "command"
+is-installed.args = ["-v", "rg"]
+is-installed.redirect.stderr-to = "/dev/null"
+
+[command-set.pacman]
+install = "sudo pacman --sync --noconfirm --needed ripgrep"
 
 is-installed.program = "command"
 is-installed.args = ["-v", "rg"]

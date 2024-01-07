@@ -3,11 +3,13 @@ executable = "fnm"
 homepage = "https://github.com/Schniz/fnm"
 description = "🚀 Fast and simple Node.js version manager, built in Rust"
 notes = """
+It seems like OS PMs don't have dependencies, so probably good to prefer those.
+
 The fnm installer says it'll update your shell rc files. FWIW, I don't think that's
 the case if you install using `brew`.
 """
 
-[command-set.default]
+[command-set.curl]
 install.program = "curl"
 install.args = ["-fsSL", "https://fnm.vercel.app/install"]
 install.pipe = "bash"
@@ -18,6 +20,13 @@ is-installed.redirect.stderr-to = "/dev/null"
 
 [command-set.brew]
 install = "brew install fnm"
+
+is-installed.program = "command"
+is-installed.args = ["-v", "fnm"]
+is-installed.redirect.stderr-to = "/dev/null"
+
+[command-set.pacman]
+install = "sudo pacman --sync --noconfirm --needed fnm"
 
 is-installed.program = "command"
 is-installed.args = ["-v", "fnm"]

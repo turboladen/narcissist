@@ -5,8 +5,15 @@ description = """
 Tree-sitter is a parser generator tool and an incremental parsing library. It can build a concrete syntax tree for a source file and efficiently update the syntax tree as the source file is edited.
 """
 
-[command-set.default]
+[command-set.brew]
 install = "brew install tree-sitter"
+
+is-installed.program = "command"
+is-installed.args = ["-v", "tree-sitter"]
+is-installed.redirect.stderr-to = "/dev/null"
+
+[command-set.pacman]
+install = "sudo pacman --sync --noconfirm --needed tree-sitter-cli"
 
 is-installed.program = "command"
 is-installed.args = ["-v", "tree-sitter"]

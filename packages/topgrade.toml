@@ -3,8 +3,15 @@ executable = "topgrade"
 homepage = "https://github.com/topgrade-rs/topgrade"
 description = "Upgrade all the things"
 
-[command-set.default]
+[command-set.brew]
 install = "brew install topgrade"
+
+is-installed.program = "command"
+is-installed.args = ["-v", "topgrade"]
+is-installed.redirect.stderr-to = "/dev/null"
+
+[command-set.pacman]
+install = "sudo pacman --sync --noconfirm --needed topgrade"
 
 is-installed.program = "command"
 is-installed.args = ["-v", "topgrade"]

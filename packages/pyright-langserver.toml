@@ -1,0 +1,30 @@
+[package]
+executable = "pyright-langserver"
+homepage = "https://github.com/microsoft/pyright"
+description = "Static Type Checker for Python"
+notes = """
+- Prefer the `pipx` method, so as to not have the OS package manager install
+  Python things.
+- `pyright-langserver` comes with the `pyright` package. ...at least on Arch.
+"""
+
+[command-set.rye]
+install = "rye install pyright"
+
+is-installed.program = "command"
+is-installed.args = ["-v", "pyright-langserver"]
+is-installed.redirect.stderr-to = "/dev/null"
+
+[command-set.pipx]
+install = "pipx install pyright"
+
+is-installed.program = "command"
+is-installed.args = ["-v", "pyright-langserver"]
+is-installed.redirect.stderr-to = "/dev/null"
+
+[command-set.pacman]
+install = "sudo pacman --sync --noconfirm --needed pyright"
+
+is-installed.program = "command"
+is-installed.args = ["-v", "pyright-langserver"]
+is-installed.redirect.stderr-to = "/dev/null"

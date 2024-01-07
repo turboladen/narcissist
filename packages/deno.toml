@@ -1,0 +1,18 @@
+[package]
+executable = "deno"
+homepage = "https://deno.com/"
+description = "The next generation JavaScript runtime"
+
+[command-set.brew]
+install = "brew install deno"
+
+is-installed.program = "command"
+is-installed.args = ["-v", "deno"]
+is-installed.redirect.stderr-to = "/dev/null"
+
+[command-set.pacman]
+install = "sudo pacman --sync --noconfirm --needed deno"
+
+is-installed.program = "command"
+is-installed.args = ["-v", "deno"]
+is-installed.redirect.stderr-to = "/dev/null"

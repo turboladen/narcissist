@@ -1,0 +1,23 @@
+[package]
+executable = "prettier"
+homepage = "https://prettier.io/"
+description = "An opinionated code formatter"
+notes = """
+Prefer the `npm` version since OS PM version installs Node.
+
+What about using dprint?
+"""
+
+[command-set.npm]
+install = "npm install --global prettier"
+
+is-installed.program = "command"
+is-installed.args = ["-v", "prettier"]
+is-installed.redirect.stderr-to = "/dev/null"
+
+[command-set.pacman]
+install = "sudo pacman --sync --noconfirm --needed prettier"
+
+is-installed.program = "command"
+is-installed.args = ["-v", "prettier"]
+is-installed.redirect.stderr-to = "/dev/null"

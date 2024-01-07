@@ -1,0 +1,14 @@
+[package]
+executable = "kanshi"
+homepage = "https://sr.ht/~emersion/kanshi/"
+description = """
+kanshi allows you to define output profiles that are automatically enabled and
+disabled on hotplug.
+"""
+
+[command-set.pacman]
+install = "sudo pacman --sync --noconfirm --needed kanshi"
+
+is-installed.program = "command"
+is-installed.args = ["-v", "kanshi"]
+is-installed.redirect.stderr-to = "/dev/null"

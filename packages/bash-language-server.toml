@@ -1,0 +1,28 @@
+[package]
+executable = "bash-language-server"
+homepage = "https://github.com/bash-lsp/bash-language-server"
+description = "A language server for Bash"
+notes = """
+Prefer the `npm` version so as to avoid installing Node via the OS package manager.
+"""
+
+[command-set.npm]
+install = "npm install --global bash-language-server"
+
+is-installed.program = "command"
+is-installed.args = ["-v", "bash-language-server"]
+is-installed.redirect.stderr-to = "/dev/null"
+
+[command-set.brew]
+install = "brew install bash-language-server"
+
+is-installed.program = "command"
+is-installed.args = ["-v", "bash-language-server"]
+is-installed.redirect.stderr-to = "/dev/null"
+
+[command-set.pacman]
+install = "sudo pacman --sync --noconfirm --needed bash-language-server"
+
+is-installed.program = "command"
+is-installed.args = ["-v", "bash-language-server"]
+is-installed.redirect.stderr-to = "/dev/null"

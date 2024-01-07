@@ -1,0 +1,22 @@
+[package]
+executable = "bacon"
+homepage = "https://dystroy.org/bacon/"
+description = "bacon is a background rust code checker."
+notes = """
+Prefer the `cargo` method; some package managers will install Rust to support this
+and we don't want that.
+"""
+
+[command-set.cargo]
+install = "cargo binstall --no-confirm bacon"
+
+is-installed.program = "command"
+is-installed.args = ["-v", "bacon"]
+is-installed.redirect.stderr-to = "/dev/null"
+
+[command-set.pacman]
+install = "sudo pacman --sync --noconfirm --needed bacon"
+
+is-installed.program = "command"
+is-installed.args = ["-v", "bacon"]
+is-installed.redirect.stderr-to = "/dev/null"

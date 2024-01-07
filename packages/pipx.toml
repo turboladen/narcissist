@@ -1,0 +1,24 @@
+[package]
+executable = "pipx"
+homepage = "https://github.com/pypa/pipx"
+description = """
+Install and Run Python Applications in Isolated Environments
+"""
+notes = """
+I'm currently trying out Rye, which doesn't depend on a system Python like the
+OS-PM-installed `pipx` packages do, so prefer `rye` for now.
+"""
+
+[command-set.brew]
+install = "brew install pipx"
+
+is-installed.program = "command"
+is-installed.args = ["-v", "pipx"]
+is-installed.redirect.stderr-to = "/dev/null"
+
+[command-set.pacman]
+install = "sudo pacman --sync --noconfirm --needed python-pipx"
+
+is-installed.program = "command"
+is-installed.args = ["-v", "pipx"]
+is-installed.redirect.stderr-to = "/dev/null"

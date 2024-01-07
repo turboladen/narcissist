@@ -1,0 +1,25 @@
+[package]
+executable = "taplo"
+homepage = "https://taplo.tamasfe.dev/"
+description = "A versatile, feature-rich TOML toolkit."
+
+[command-set.brew]
+install = "brew install taplo"
+
+is-installed.program = "command"
+is-installed.args = ["-v", "taplo"]
+is-installed.redirect.stderr-to = "/dev/null"
+
+[command-set.cargo]
+install = "cargo binstall --no-confirm taplo-cli --features lsp"
+
+is-installed.program = "command"
+is-installed.args = ["-v", "taplo"]
+is-installed.redirect.stderr-to = "/dev/null"
+
+[command-set.pacman]
+install = "sudo pacman --sync --noconfirm --needed taplo"
+
+is-installed.program = "command"
+is-installed.args = ["-v", "taplo"]
+is-installed.redirect.stderr-to = "/dev/null"

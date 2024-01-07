@@ -2,9 +2,26 @@
 executable = "eza"
 homepage = "https://github.com/eza-community/eza"
 description = "A modern, maintained replacement for ls"
+notes = """
+Seems like the PM packages don't have any dependencies, so favor those.
+"""
 
-[command-set.default]
-install = "cargo install eza"
+[command-set.brew]
+install = "brew install eza"
+
+is-installed.program = "command"
+is-installed.args = ["-v", "eza"]
+is-installed.redirect.stderr-to = "/dev/null"
+
+[command-set.cargo]
+install = "cargo binstall --no-confirm eza"
+
+is-installed.program = "command"
+is-installed.args = ["-v", "eza"]
+is-installed.redirect.stderr-to = "/dev/null"
+
+[command-set.pacman]
+install = "sudo pacman -S --noconfirm --needed eza"
 
 is-installed.program = "command"
 is-installed.args = ["-v", "eza"]
