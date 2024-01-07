@@ -8,6 +8,13 @@ notes = """
 - `pyright-langserver` comes with the `pyright` package. ...at least on Arch.
 """
 
+[command-set.rye]
+install = "rye install pyright"
+
+is-installed.program = "command"
+is-installed.args = ["-v", "pyright-langserver"]
+is-installed.redirect.stderr-to = "/dev/null"
+
 [command-set.pipx]
 install = "pipx install pyright"
 

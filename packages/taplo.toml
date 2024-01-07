@@ -11,7 +11,7 @@ is-installed.args = ["-v", "taplo"]
 is-installed.redirect.stderr-to = "/dev/null"
 
 [command-set.cargo]
-install = "cargo binstall taplo-cli --features lsp"
+install = "cargo binstall --no-confirm taplo-cli --features lsp"
 
 is-installed.program = "command"
 is-installed.args = ["-v", "taplo"]

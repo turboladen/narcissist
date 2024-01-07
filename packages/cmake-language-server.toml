@@ -3,6 +3,13 @@ executable = "cmake-language-server"
 homepage = "https://github.com/regen100/cmake-language-server"
 description = "CMake LSP Implementation"
 
+[command-set.rye]
+install = "rye install cmake-language-server"
+
+is-installed.program = "command"
+is-installed.args = ["-v", "cmake-language-server"]
+is-installed.redirect.stderr-to = "/dev/null"
+
 [command-set.pipx]
 install = "pipx install cmake-language-server"
 
