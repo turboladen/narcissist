@@ -12,7 +12,7 @@ favoring that.)
 install = "rye install ruff-lsp"
 
 is-installed.program = "command"
-is-installed.args = ["-v", "rye"]
+is-installed.args = ["-v", "ruff-lsp"]
 is-installed.redirect.stderr-to = "/dev/null"
 
 [command-set.pipx]

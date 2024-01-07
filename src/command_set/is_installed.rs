@@ -1,6 +1,6 @@
 use std::{convert::Infallible, path::PathBuf};
 
-use log::{debug, info, warn};
+use log::{debug, info};
 
 use crate::{
     command::{self, Command},
@@ -16,12 +16,32 @@ pub(crate) enum IsInstalledOutput {
 
 pub(crate) struct IsInstalled;
 
+impl IsInstalled {
+    fn find_installed(executable: Option<&String>) -> IsInstalledOutput {
+        if let Some(executable) = executable {
+            match command::which(executable) {
+                Some(path) => {
+                    debug!("output path is empty? {}", path.as_os_str().is_empty());
+                    info!("Package already installed at `{}`", path.display());
+                    IsInstalledOutput::InstalledAt(path)
+                }
+                None => {
+                    info!("Package already installed");
+                    IsInstalledOutput::Installed
+                }
+            }
+        } else {
+            info!("Package already installed");
+            IsInstalledOutput::Installed
+        }
+    }
+}
+
 impl Execute for IsInstalled {
     type Output = IsInstalledOutput;
     type Err = Infallible;
 
     fn command(executable: Option<&String>, cmd: &Command) -> Result<Self::Output, Self::Err> {
-        debug!("Command is of type `Command`");
         info!("Running is_installed command: {cmd}");
 
         // If the command fails, that's what tells us the package
@@ -29,7 +49,7 @@ impl Execute for IsInstalled {
         // match command::exec(cmd) {
         match cmd.exec(None) {
             Ok(status) => {
-                dbg!(&status);
+                debug!("command return status: {}", &status);
 
                 if !status.success() {
                     // Probably shouldn't be able to get here.
@@ -37,24 +57,10 @@ impl Execute for IsInstalled {
                     return Ok(IsInstalledOutput::NotInstalled);
                 };
 
-                if let Some(executable) = executable {
-                    match command::which(executable) {
-                        Some(path) => {
-                            info!("Package already installed at `{}`", path.display());
-                            Ok(IsInstalledOutput::InstalledAt(path))
-                        }
-                        None => {
-                            info!("Package already installed");
-                            Ok(IsInstalledOutput::Installed)
-                        }
-                    }
-                } else {
-                    info!("Package already installed");
-                    Ok(IsInstalledOutput::Installed)
-                }
+                Ok(Self::find_installed(executable))
             }
-            Err(e) => {
-                warn!("Package already installed. {}", e);
+            Err(_) => {
+                debug!("is-installed command returned non-0");
                 Ok(IsInstalledOutput::NotInstalled)
             }
         }
