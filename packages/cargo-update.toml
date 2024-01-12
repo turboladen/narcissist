@@ -1,0 +1,13 @@
+[package]
+executable = "cargo-update"
+homepage = "https://github.com/nabijaczleweli/cargo-update"
+description = """
+A cargo subcommand for checking and applying updates to installed executables 
+"""
+
+[command-set.cargo]
+install = "cargo binstall --no-confirm cargo-update"
+
+is-installed.program = "command"
+is-installed.args = ["-v", "cargo-update"]
+is-installed.redirect.stderr-to = "/dev/null"
