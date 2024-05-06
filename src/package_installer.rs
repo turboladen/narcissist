@@ -3,10 +3,10 @@ use std::{borrow::Cow, path::PathBuf};
 use anyhow::bail;
 use log::{debug, info};
 
-use crate::{command_set::is_installed::IsInstalledOutput, PackageFile};
+use crate::{builtin::is_installed::IsInstalledOutput, Specification};
 
 pub(crate) struct PackageInstaller<'a> {
-    package_file: Cow<'a, PackageFile>,
+    package_file: Cow<'a, Specification>,
     requested_command_set: String,
 }
 
@@ -20,7 +20,7 @@ impl<'a> PackageInstaller<'a> {
             package_path.display()
         );
 
-        let package_file = PackageFile::open(&*package_path)?;
+        let package_file = Specification::open(&*package_path)?;
         package_file.package().log();
 
         if !package_file

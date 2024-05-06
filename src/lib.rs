@@ -1,13 +1,11 @@
+pub(crate) mod builtin;
 pub mod cli;
-pub(crate) mod command;
-pub(crate) mod command_set;
-pub(crate) mod package;
-pub mod package_file;
 pub mod package_installer;
+pub mod specification;
 
-pub use self::{cli::Cli, package_file::PackageFile};
+pub(crate) use self::specification::Specification;
 
-use self::command::Command;
+use crate::specification::Command;
 
 pub(crate) trait Execute {
     type Output;

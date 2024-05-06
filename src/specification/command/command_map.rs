@@ -13,7 +13,7 @@ pub(crate) struct CommandMap {
     program: String,
     args: Vec<String>,
     redirect: Option<Redirect>,
-    pipe: Option<Box<crate::command::Command>>,
+    pipe: Option<Box<super::Command>>,
 }
 
 impl CommandMap {
@@ -29,7 +29,7 @@ impl CommandMap {
         self.redirect.as_ref()
     }
 
-    pub(crate) fn pipe(&self) -> Option<&crate::command::Command> {
+    pub(crate) fn pipe(&self) -> Option<&super::Command> {
         self.pipe.as_deref()
     }
 

@@ -3,7 +3,7 @@ use std::{convert::Infallible, path::PathBuf};
 use log::{debug, info, warn};
 
 use crate::{
-    command::{self, Command},
+    specification::command::{self, Command},
     Execute,
 };
 

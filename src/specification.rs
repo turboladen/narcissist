@@ -1,8 +1,12 @@
+pub(crate) mod command;
+pub(crate) mod command_set;
+pub(crate) mod package;
+
 use std::{collections::BTreeMap, path::Path, str::FromStr};
 
 use serde::Deserialize;
 
-use crate::{command_set::CommandSet, package::Package};
+pub(crate) use self::{command::Command, command_set::CommandSet, package::Package};
 
 /// This struct represents the file format of our TOML files.
 ///
@@ -18,17 +22,17 @@ use crate::{command_set::CommandSet, package::Package};
 /// is-installed = "command -v eza"
 /// "#;
 ///
-/// let _: narcissist::PackageFile = std::str::FromStr::from_str(file_contents).unwrap();
+/// let _: narcissist::Specification = std::str::FromStr::from_str(file_contents).unwrap();
 /// ```
 #[derive(Debug, Clone, Deserialize)]
 #[serde(rename_all(deserialize = "kebab-case"))]
-pub struct PackageFile {
+pub(crate) struct Specification {
     package: Package,
 
     command_set: BTreeMap<String, CommandSet>,
 }
 
-impl PackageFile {
+impl Specification {
     /// Reads the file at `package_path`, then parses it as TOML into a `Self`.
     ///
     pub fn open<P: AsRef<Path>>(package_path: P) -> anyhow::Result<Self> {
@@ -50,7 +54,7 @@ impl PackageFile {
     }
 }
 
-impl FromStr for PackageFile {
+impl FromStr for Specification {
     type Err = toml::de::Error;
 
     fn from_str(s: &str) -> Result<Self, Self::Err> {

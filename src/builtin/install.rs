@@ -3,7 +3,7 @@ use std::convert::Infallible;
 use anyhow::bail;
 use log::{debug, info};
 
-use crate::{command::Command, Execute};
+use crate::{specification::Command, Execute};
 
 pub(crate) struct Install;
 
