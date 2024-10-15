@@ -3,7 +3,7 @@ executable = "topgrade"
 homepage = "https://github.com/topgrade-rs/topgrade"
 description = "Upgrade all the things"
 
-[command-set.default]
+[command-sets.default]
 install = "brew install topgrade"
 
 is-installed.program = "command"

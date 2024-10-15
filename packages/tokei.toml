@@ -3,7 +3,7 @@ executable = "tokei"
 homepage = "https://github.com/XAMPPRocky/tokei"
 description = "Count your code, quickly."
 
-[command-set.default]
+[command-sets.default]
 install = "brew install tokei"
 
 is-installed.program = "command"

@@ -11,7 +11,7 @@ applications. A wealth of frontend applications and libraries are available.
 GnuPG also provides support for S/MIME and Secure Shell (ssh).
 """
 
-[command-set.default]
+[command-sets.default]
 install = "brew install gpg2"
 
 is-installed.program = "command"

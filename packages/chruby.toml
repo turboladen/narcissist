@@ -3,7 +3,7 @@ executable = "chruby"
 homepage = "https://github.com/postmodern/chruby"
 description = "Changes the current Ruby"
 
-[command-set.default]
+[command-sets.default]
 install = "brew install chruby"
 
 is-installed.program = "command"

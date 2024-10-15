@@ -3,7 +3,7 @@ executable = "delta"
 homepage = "https://github.com/dandavison/delta"
 description = "A syntax-highlighting pager for git, diff, and grep output"
 
-[command-set.default]
+[command-sets.default]
 install = "brew install git-delta"
 
 is-installed.program = "command"

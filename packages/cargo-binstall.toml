@@ -2,7 +2,7 @@
 homepage = "https://github.com/cargo-bins/cargo-binstall"
 description = "Binary installation for rust projects"
 
-[command-set.default]
+[command-sets.default]
 install.program = "curl"
 install.args = [
   "-L",

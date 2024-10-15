@@ -3,7 +3,7 @@ executable = "dua"
 homepage = "https://github.com/Byron/dua-cli"
 description = "View disk space usage and delete unwanted data, fast."
 
-[command-set.default]
+[command-sets.default]
 install = "brew install dua-cli"
 
 is-installed.program = "command"

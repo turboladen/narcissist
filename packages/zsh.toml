@@ -8,14 +8,14 @@ notes = """
 Don't need to install on macos since it comes with the distro.
 """
 
-[command-set.dnf]
+[command-sets.dnf]
 install = "sudo dnf --yes install zsh"
 
 is-installed.program = "command"
 is-installed.args = ["-v", "zsh"]
 is-installed.redirect.stderr-to = "/dev/null"
 
-[command-set.pacman]
+[command-sets.pacman]
 install = "sudo pacman -S zsh"
 
 is-installed.program = "command"

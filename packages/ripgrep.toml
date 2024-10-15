@@ -6,7 +6,7 @@ ripgrep recursively searches directories for a regex pattern while respecting
 your gitignore
 """"
 
-[command-set.default]
+[command-sets.default]
 install = "brew install ripgrep"
 
 is-installed.program = "command"

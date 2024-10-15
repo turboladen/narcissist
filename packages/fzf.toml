@@ -3,7 +3,7 @@ executable = "fzf"
 homepage = "https://github.com/junegunn/fzf"
 description = "🌸 A command-line fuzzy finder"
 
-[command-set.default]
+[command-sets.default]
 install = "brew install fzf"
 
 is-installed.program = "command"

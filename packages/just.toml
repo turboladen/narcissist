@@ -3,7 +3,7 @@ executable = "just"
 homepage = "https://just.systems/"
 description = "Just a command runner"
 
-[command-set.default]
+[command-sets.default]
 install = "brew install just"
 
 is-installed.program = "command"

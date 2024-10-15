@@ -1,16 +1,7 @@
-pub(crate) mod builtin;
+#![allow(unused_imports, dead_code)]
+
 pub mod cli;
-pub mod package_installer;
-pub mod specification;
+pub(crate) mod runner;
+pub(crate) mod specification;
 
 pub(crate) use self::specification::Specification;
-
-use crate::specification::Command;
-
-pub(crate) trait Execute {
-    type Output;
-    type Err;
-
-    fn command(executable: Option<&String>, shell_cmd: &Command)
-        -> Result<Self::Output, Self::Err>;
-}

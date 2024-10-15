@@ -3,7 +3,7 @@ executable = "nvim"
 homepage = "https://neovim.io/"
 description = "hyperextensible Vim-based text editor"
 
-[command-set.default]
+[command-sets.default]
 install = "brew install neovim"
 
 is-installed.program = "command"

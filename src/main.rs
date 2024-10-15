@@ -6,7 +6,7 @@ use log::debug;
 fn main() -> anyhow::Result<()> {
     set_up_logging();
 
-    narcissist::cli::parse()?;
+    narcissist::cli::run()?;
     Ok(())
 }
 

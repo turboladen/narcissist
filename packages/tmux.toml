@@ -3,7 +3,7 @@ executable = "tmux"
 homepage = "https://github.com/tmux/tmux"
 description = "tmux is a terminal multiplexer"
 
-[command-set.default]
+[command-sets.default]
 install = "brew install tmux"
 
 is-installed.program = "command"

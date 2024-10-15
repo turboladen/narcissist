@@ -3,7 +3,7 @@
 homepage = "https://datasift.github.io/gitflow/"
 description = "GitFlow For GitHub"
 
-[command-set.default]
+[command-sets.default]
 install = "brew install hubflow"
 
 is-installed.program = "git"

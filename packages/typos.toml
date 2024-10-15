@@ -3,7 +3,7 @@ executable = "typos"
 homepage = "https://github.com/crate-ci/typos"
 description = "Source code spell checker"
 
-[command-set.default]
+[command-sets.default]
 install = "cargo install typos-cli"
 
 is-installed.program = "command"

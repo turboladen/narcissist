@@ -9,7 +9,7 @@ notes = """
 Probably don't need to install this on Macos since it comes with the distro.
 """
 
-[command-set.default]
+[command-sets.default]
 install = "brew install curl"
 
 is-installed.program = "command"

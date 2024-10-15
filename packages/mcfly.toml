@@ -3,7 +3,7 @@ executable = "mcfly"
 homepage = "https://github.com/cantino/mcfly"
 description = "Fly through your shell history. Great Scott!"
 
-[command-set.default]
+[command-sets.default]
 install = "brew install mcfly"
 
 is-installed.program = "command"

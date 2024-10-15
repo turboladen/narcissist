@@ -3,7 +3,7 @@ executable = "eza"
 homepage = "https://github.com/eza-community/eza"
 description = "A modern, maintained replacement for ls"
 
-[command-set.default]
+[command-sets.default]
 install = "cargo install eza"
 
 is-installed.program = "command"

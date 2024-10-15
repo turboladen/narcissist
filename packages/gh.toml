@@ -3,7 +3,7 @@ executable = "gh"
 homepage = "https://cli.github.com/"
 description = "GitHub CLI brings GitHub to your terminal."
 
-[command-set.default]
+[command-sets.default]
 install = "brew install gh"
 
 is-installed.program = "command"

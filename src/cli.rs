@@ -4,7 +4,7 @@ use std::borrow::Cow;
 
 use clap::Parser;
 
-use crate::package_installer::PackageInstaller;
+use crate::runner::Runner;
 
 use self::install::Install;
 
@@ -32,15 +32,14 @@ pub enum Subcommand {
 
 /// Main entry point into the app. This parses the CLI command & args and executes accordingly.
 ///
-pub fn parse() -> anyhow::Result<()> {
+pub fn run() -> anyhow::Result<()> {
     let cli = Cli::parse();
 
     match &cli.subcommand {
         Subcommand::Install(cmd) => {
-            let using = cmd.using().trim().to_string();
-
-            let installer = PackageInstaller::try_new(using, Cow::Borrowed(cmd.file()))?;
-            installer.install(cli.dry_run)?;
+            let requested_command_set = cmd.using().trim();
+            let runner = Runner::try_new(requested_command_set, Cow::Borrowed(cmd.file()))?;
+            runner.install(cli.dry_run)?;
         }
     }
 

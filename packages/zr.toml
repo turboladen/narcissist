@@ -3,7 +3,7 @@ executable = "zr"
 homepage = "https://github.com/jedahan/zr"
 description = "zsh plugin manager written in rust"
 
-[command-set.default]
+[command-sets.default]
 install = "cargo binstall zr"
 
 is-installed.program = "command"

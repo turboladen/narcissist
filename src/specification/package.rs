@@ -2,6 +2,8 @@ use log::info;
 use serde::Deserialize;
 use url::Url;
 
+/// A `Package` contains the metadata for a `Specification`.
+///
 #[derive(Debug, Clone, Deserialize)]
 #[serde(deny_unknown_fields)]
 pub struct Package {
@@ -15,8 +17,8 @@ impl Package {
     /// The name of the executable that will exist on the system after the package is installed
     /// (ex. `bat`).
     ///
-    pub fn executable(&self) -> Option<&String> {
-        self.executable.as_ref()
+    pub fn executable(&self) -> Option<&str> {
+        self.executable.as_deref()
     }
 
     /// The home page of the package.
@@ -41,10 +43,7 @@ impl Package {
     ///
     pub(crate) fn log(&self) {
         info!("Package:");
-        info!(
-            "\tExecutable: `{}`",
-            self.executable().map_or("", |s| s.as_str())
-        );
+        info!("\tExecutable: `{}`", self.executable().map_or("", |s| s));
         info!("\tHomepage: {}", self.homepage().map_or("", |s| s.as_str()));
         info!(
             "\tDescription: \"{}\"",

@@ -17,7 +17,7 @@ pub(crate) use self::{command::Command, command_set::CommandSet, package::Packag
 /// homepage = "https://github.com/eza-community/eza"
 /// description = "A modern, maintained replacement for ls"
 ///
-/// [command-set.default]
+/// [command-sets.default]
 /// install = "cargo install eza"
 /// is-installed = "command -v eza"
 /// "#;
@@ -26,14 +26,14 @@ pub(crate) use self::{command::Command, command_set::CommandSet, package::Packag
 /// ```
 #[derive(Debug, Clone, Deserialize)]
 #[serde(rename_all(deserialize = "kebab-case"))]
-pub(crate) struct Specification {
+pub struct Specification {
     package: Package,
 
-    command_set: BTreeMap<String, CommandSet>,
+    command_sets: BTreeMap<String, CommandSet>,
 }
 
 impl Specification {
-    /// Reads the file at `package_path`, then parses it as TOML into a `Self`.
+    /// Reads the file at `package_path`, then parses it as `TOML` into a `Self`.
     ///
     pub fn open<P: AsRef<Path>>(package_path: P) -> anyhow::Result<Self> {
         let contents = std::fs::read_to_string(package_path)?;
@@ -47,10 +47,10 @@ impl Specification {
         &self.package
     }
 
-    /// The `[command-set]` section of the file.
+    /// The `[command-sets]` section of the file.
     ///
-    pub fn command_set(&self) -> &BTreeMap<String, CommandSet> {
-        &self.command_set
+    pub fn command_sets(&self) -> &BTreeMap<String, CommandSet> {
+        &self.command_sets
     }
 }
 

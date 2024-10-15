@@ -3,7 +3,7 @@ executable = "jq"
 homepage = "https://github.com/jqlang/jq"
 description = "Command-line JSON processor"
 
-[command-set.default]
+[command-sets.default]
 install = "brew install jq"
 
 is-installed.program = "command"

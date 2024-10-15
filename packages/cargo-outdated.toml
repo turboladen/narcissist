@@ -4,7 +4,7 @@ description = """
 A cargo subcommand for displaying when Rust dependencies are out of date
 """
 
-[command-set.default]
+[command-sets.default]
 install = "cargo binstall --no-confirm cargo-outdated"
 
 is-installed.program = "command"
